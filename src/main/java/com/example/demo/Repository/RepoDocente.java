@@ -8,6 +8,8 @@ public interface RepoDocente extends JpaRepository<Docente, Integer>{
 
 	Docente findByDocumento(long documento);
 	
+	Docente findById(int id);
+	
 	Docente findByCorreo(String correo);
 	
 }

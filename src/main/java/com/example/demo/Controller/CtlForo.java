@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.Entity.Estudiante;
 import com.example.demo.Entity.Foro;
+import com.example.demo.Repository.RepoDocente;
 import com.example.demo.Repository.RepoForo;
 
 @RestController
@@ -20,6 +21,8 @@ public class CtlForo {
 
 	@Autowired
 	private RepoForo repoForo;
+	@Autowired
+	private RepoDocente repoDocente;
 
 	@PostMapping("/guardarForo")
 	public Foro guardar(@RequestBody Foro foro) {
@@ -40,6 +43,11 @@ public class CtlForo {
 		return this.repoForo.findAll();
 	}
 
+	@GetMapping("/listarForosDocente/{docenteId}")
+	public List<Foro> listarForosPorDocente(@PathVariable("docenteId") int docenteId) {
+		return this.repoForo.findAllByDocente(repoDocente.findById(docenteId));
+	}
+	
 	@DeleteMapping("eliminarForo/{id}")
 	public ResponseEntity<Foro> eliminar(@PathVariable("id") int id) {
 		Foro foro = this.repoForo.findById(id);

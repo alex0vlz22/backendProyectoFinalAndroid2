@@ -16,5 +16,7 @@ public interface RepoForo extends JpaRepository<Foro, Integer> {
 	Foro findByDocente(Docente docente);
 
 	List<Foro> findAll();
+	
+	List<Foro> findAllByDocente(Docente docente);
 
 }
