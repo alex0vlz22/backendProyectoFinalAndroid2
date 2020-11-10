@@ -7,19 +7,22 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 import lombok.Data;
 
 @Entity
 @Data
-public class Foro {
+public class Clase {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String titulo, descripcion;
-	private boolean activo;
-	private int limiteParticipaciones;
 	private int idDocente;
+	private String grado;
+	
 	//@ManyToOne
 	//@JoinColumn(name="idDocente")
 	//private Docente docente;
+	
 }

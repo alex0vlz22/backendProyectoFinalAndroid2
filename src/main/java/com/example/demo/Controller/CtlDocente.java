@@ -66,11 +66,21 @@ public class CtlDocente {
 	@GetMapping("/buscarDocentePorCorreo/{correoDocente}")
 	public ResponseEntity<Docente> buscarPorCorreo(@PathVariable("correoDocente") String correo) {
 		Docente docente = this.repoDocente.findByCorreo(correo);
-		System.out.println("ENTROOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 		if(docente == null)
 			return ResponseEntity.notFound().build();
 		else
 			return ResponseEntity.ok(docente);
 	}	
+	
+	@GetMapping("/buscarPorId/{id}")
+	public ResponseEntity<Docente> buscarPorId(@PathVariable("id") int id){
+		Docente docente = this.repoDocente.findById(id);
+		System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+		if(docente == null) {
+			return ResponseEntity.notFound().build();
+		}else {
+			return ResponseEntity.ok(docente);
+		}
+	}
 	
 }

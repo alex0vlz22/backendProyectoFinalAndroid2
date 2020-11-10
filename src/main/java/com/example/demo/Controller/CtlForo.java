@@ -45,7 +45,7 @@ public class CtlForo {
 
 	@GetMapping("/listarForosDocente/{docenteId}")
 	public List<Foro> listarForosPorDocente(@PathVariable("docenteId") int docenteId) {
-		return this.repoForo.findAllByDocente(repoDocente.findById(docenteId));
+		return this.repoForo.findAllByIdDocente(docenteId);
 	}
 	
 	@DeleteMapping("eliminarForo/{id}")
