@@ -19,6 +19,8 @@ public class Foro {
 	private boolean activo;
 	private int limiteParticipaciones;
 	private int idDocente;
+	private String grado;
+	
 	//@ManyToOne
 	//@JoinColumn(name="idDocente")
 	//private Docente docente;
