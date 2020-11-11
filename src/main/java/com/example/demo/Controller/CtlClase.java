@@ -55,7 +55,7 @@ public class CtlClase {
 	 * ResponseEntity.notFound().build(); }
 	 */
 
-	@DeleteMapping("/eliminarClase")
+	/*@DeleteMapping("/eliminarClase")
 	public ResponseEntity<Clase> eliminar(@RequestBody Clase clase) {
 		Clase cls = this.repoClase.findByIdDocente(clase.getId());
 		if (cls == null) {
@@ -63,11 +63,11 @@ public class CtlClase {
 		} else {
 			return ResponseEntity.ok(clase);
 		}
-	}
+	}*/
 
 	@GetMapping("/listarPorDocente/{idDocente}")
 	public List<Clase> listarPorDocente(@PathVariable("idDocente") int id) {
-		List<Clase> lista = this.repoClase.buscarClasesPorDocente(id);
+		List<Clase> lista = this.repoClase.findByIdDocente(id);
 		return lista;
 	}
 	

@@ -15,12 +15,11 @@ public interface RepoClase extends JpaRepository<Clase, Integer>{
 	
 	List<Clase> findByGrado(String grado);
 	
-	Clase findByIdDocente(int idDocente);
-	
-	
 	// este método sí sirve equisdé
 	@Query("select c from Clase c where c.idDocente = ?1")
 	List<Clase> buscarClasesPorDocente(int idDocente);
+	
+	List<Clase> findByIdDocente(int idDocente);
 	
 	Clase findByCodigo(String codigo);
 	
