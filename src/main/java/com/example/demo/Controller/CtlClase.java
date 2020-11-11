@@ -70,5 +70,14 @@ public class CtlClase {
 		List<Clase> lista = this.repoClase.buscarClasesPorDocente(id);
 		return lista;
 	}
+	
+	@GetMapping("/buscarPorCodigo/{codigo}")
+	public ResponseEntity<Clase> buscarPorCodigo(@PathVariable("codigo") String codigo){
+		Clase clase = this.repoClase.findByCodigo(codigo);
+		if(clase == null)
+			return ResponseEntity.notFound().build();
+		else
+			return ResponseEntity.ok(clase);
+	}
 
 }

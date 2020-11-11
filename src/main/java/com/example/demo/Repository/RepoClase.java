@@ -10,7 +10,7 @@ import com.example.demo.Entity.Docente;
 
 public interface RepoClase extends JpaRepository<Clase, Integer>{
 	
-	@Query("select c from clase c where c.grado = ?1 and c.id_docente = ?1")
+	@Query("select c from Clase c where c.grado = ?1 and c.idDocente = ?1")
 	Clase buscarClasePorGradoYDocente(String grado, int idDocente);
 	
 	List<Clase> findByGrado(String grado);
@@ -19,8 +19,9 @@ public interface RepoClase extends JpaRepository<Clase, Integer>{
 	
 	
 	// este método sí sirve equisdé
-	@Query("select c from clase c where c.id_docente = ?1")
+	@Query("select c from Clase c where c.idDocente = ?1")
 	List<Clase> buscarClasesPorDocente(int idDocente);
 	
+	Clase findByCodigo(String codigo);
 	
 }
