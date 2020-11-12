@@ -36,6 +36,15 @@ public class CtlEstudiante {
 			return ResponseEntity.ok(e);
 	}
 	
+	@GetMapping("/buscarEstudianteId/{id}")
+	public ResponseEntity<Estudiante> buscarPorId(@PathVariable("id") int id){
+		Estudiante e = this.repoEstudiante.findById(id);
+		if(e==null)
+			return ResponseEntity.notFound().build();
+		else
+			return ResponseEntity.ok(e);
+	}
+	
 	@PutMapping("/modificarEstudiante")
 	public ResponseEntity<Estudiante> modificar(@RequestBody Estudiante estudiante){
 		Estudiante e = this.repoEstudiante.findByDocumento(estudiante.getDocumento());

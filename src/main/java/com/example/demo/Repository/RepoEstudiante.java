@@ -10,4 +10,6 @@ public interface RepoEstudiante extends JpaRepository<Estudiante, Integer>{
 	
 	Estudiante findByCorreo(String correo);
 	
+	Estudiante findById(int id);
+	
 }

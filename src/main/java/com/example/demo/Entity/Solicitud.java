@@ -17,6 +17,6 @@ public class Solicitud {
 	
 	private int idEstudiante, idDocente;
 	
-	private String nombreClase, codigo;
+	private String nombreClase, codigo, nombreEstudiante, gradoEstudiante, gradoClase;
 	
 }
