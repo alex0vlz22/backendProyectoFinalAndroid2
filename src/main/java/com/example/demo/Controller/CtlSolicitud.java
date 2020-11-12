@@ -1,5 +1,7 @@
 package com.example.demo.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,13 +33,10 @@ public class CtlSolicitud {
 			return ResponseEntity.ok(solicitud);
 	}
 
-	@GetMapping("/buscarSolicitudPorIdClase/{idClase}")
-	public ResponseEntity<Solicitud> buscarPorClase(@PathVariable("idClase") int idClase) {
-		Solicitud solicitud = this.repoSolicitud.findByIdClase(idClase);
-		if (solicitud == null)
-			return ResponseEntity.notFound().build();
-		else
-			return ResponseEntity.ok(solicitud);
+	@GetMapping("/buscarSolicitudPorIdDocente/{idDocente}")
+	public List<Solicitud> buscarPorClase(@PathVariable("idDocente") int idDocente) {
+		List<Solicitud> listaSolicitud = this.repoSolicitud.findByIdDocente(idDocente);
+		return listaSolicitud;
 	}
 
 }
