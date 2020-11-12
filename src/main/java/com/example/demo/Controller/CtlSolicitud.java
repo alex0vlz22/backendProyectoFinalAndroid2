@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,6 +38,17 @@ public class CtlSolicitud {
 	public List<Solicitud> buscarPorClase(@PathVariable("idDocente") int idDocente) {
 		List<Solicitud> listaSolicitud = this.repoSolicitud.findByIdDocente(idDocente);
 		return listaSolicitud;
+	}
+	
+	@DeleteMapping("/eliminarSolicitud/{id}")
+	public ResponseEntity<Solicitud> eliminar(@PathVariable("id") int id){
+		Solicitud s = this.repoSolicitud.findById(id);
+		if(s == null)
+			return ResponseEntity.notFound().build();
+		else
+			System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
+			this.repoSolicitud.delete(s);
+			return ResponseEntity.ok(s);
 	}
 
 }

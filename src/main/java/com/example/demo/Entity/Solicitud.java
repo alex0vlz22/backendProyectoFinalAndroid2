@@ -15,7 +15,7 @@ public class Solicitud {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private int idEstudiante, idDocente;
+	private int idEstudiante, idDocente, idClase;
 	
 	private String nombreClase, codigo, nombreEstudiante, gradoEstudiante, gradoClase;
 	
