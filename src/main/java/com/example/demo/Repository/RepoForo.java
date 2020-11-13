@@ -13,10 +13,10 @@ public interface RepoForo extends JpaRepository<Foro, Integer> {
 
 	Foro findById(int id);
 
-	Foro findByIdDocente(int idDocente);
+	List<Foro> findByIdDocente(int idDocente);
 
 	List<Foro> findAll();
 	
-	List<Foro> findAllByIdDocente(int idDocente);
+	//List<Foro> findAllByIdDocente(int idDocente);
 
 }
