@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.example.demo.Entity.Clase;
-import com.example.demo.Entity.Docente;
 
 public interface RepoClase extends JpaRepository<Clase, Integer>{
 	

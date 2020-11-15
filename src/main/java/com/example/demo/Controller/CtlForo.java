@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Entity.Estudiante;
 import com.example.demo.Entity.Foro;
-import com.example.demo.Repository.RepoDocente;
 import com.example.demo.Repository.RepoForo;
 
 @RestController
@@ -21,8 +19,6 @@ public class CtlForo {
 
 	@Autowired
 	private RepoForo repoForo;
-	@Autowired
-	private RepoDocente repoDocente;
 
 	@PostMapping("/guardarForo")
 	public Foro guardar(@RequestBody Foro foro) {
