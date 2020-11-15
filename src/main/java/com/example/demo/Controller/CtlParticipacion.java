@@ -41,6 +41,11 @@ public class CtlParticipacion {
 	public List<Participacion> listarParticipaciones() {
 		return this.repoParticipacion.findAll();
 	}
+	
+	@GetMapping("/listarParticipacionesForo/{idForo}")
+	public List<Participacion> listarParticipacionesPorForo(@PathVariable("idForo") int idForo){
+		return repoParticipacion.findAllByIdForo(idForo);
+	}
 
 	@GetMapping("/listarParticipacionesPorParticipante/{idParticipante}")
 	public List<Participacion> listarParticipacionesPorParticipante(@PathVariable("idParticipante") int idParticipante) {

@@ -44,7 +44,7 @@ public class CtlForo {
 		return this.repoForo.findByIdDocente(docenteId);
 	}
 	
-	@DeleteMapping("eliminarForo/{id}")
+	@DeleteMapping("/eliminarForo/{id}")
 	public ResponseEntity<Foro> eliminar(@PathVariable("id") int id) {
 		Foro foro = this.repoForo.findById(id);
 		if (foro == null)
@@ -52,5 +52,10 @@ public class CtlForo {
 		else
 			this.repoForo.delete(foro);
 		return ResponseEntity.ok(foro);
+	}
+	
+	@GetMapping("/listarForosPorClase/{idClase}")
+	public List<Foro> listarForosPorClase(@PathVariable("idClase") int idClase){
+		return this.repoForo.findAllByIdClase(idClase);
 	}
 }
