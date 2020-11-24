@@ -35,14 +35,14 @@ public class CtlDocente {
 			return ResponseEntity.ok(docente);
 	}	
 	
-	@PutMapping("/modificarDocente")
-	public ResponseEntity<Docente> modificar(@RequestBody Docente docente){
+	@PutMapping("/modificarDocente/{id}")
+	public ResponseEntity<Docente> modificar(@RequestBody Docente docente, @PathVariable("id") int id){
 		Docente d = this.repoDocente.findByCorreo(docente.getCorreo());
 		if(d == null)
 			return ResponseEntity.notFound().build();
 		else
 			docente.setId(d.getId());
-			this.repoDocente.save(d);
+			this.repoDocente.save(docente);
 			return ResponseEntity.ok(docente);
 	}
 	

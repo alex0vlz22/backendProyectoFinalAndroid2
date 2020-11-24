@@ -47,7 +47,7 @@ public class CtlEstudiante {
 	
 	@PutMapping("/modificarEstudiante")
 	public ResponseEntity<Estudiante> modificar(@RequestBody Estudiante estudiante){
-		Estudiante e = this.repoEstudiante.findByDocumento(estudiante.getDocumento());
+		Estudiante e = this.repoEstudiante.findByCorreo(estudiante.getCorreo());
 		if (e == null)
 			return ResponseEntity.notFound().build();
 		else
