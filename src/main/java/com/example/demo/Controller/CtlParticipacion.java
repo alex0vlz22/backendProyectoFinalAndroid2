@@ -17,9 +17,6 @@ import com.example.demo.Repository.RepoParticipacion;
 @RestController
 public class CtlParticipacion {
 
-
-
-
 	@Autowired
 	private RepoParticipacion repoParticipacion;
 
