@@ -37,7 +37,7 @@ public class CtlDocente {
 	
 	@PutMapping("/modificarDocente/{id}")
 	public ResponseEntity<Docente> modificar(@RequestBody Docente docente, @PathVariable("id") int id){
-		Docente d = this.repoDocente.findByCorreo(docente.getCorreo());
+		Docente d = this.repoDocente.findByCorreoIgnoreCase(docente.getCorreo());
 		if(d == null)
 			return ResponseEntity.notFound().build();
 		else
@@ -65,7 +65,7 @@ public class CtlDocente {
 	
 	@GetMapping("/buscarDocentePorCorreo/{correoDocente}")
 	public ResponseEntity<Docente> buscarPorCorreo(@PathVariable("correoDocente") String correo) {
-		Docente docente = this.repoDocente.findByCorreo(correo);
+		Docente docente = this.repoDocente.findByCorreoIgnoreCase(correo);
 		if(docente == null)
 			return ResponseEntity.notFound().build();
 		else

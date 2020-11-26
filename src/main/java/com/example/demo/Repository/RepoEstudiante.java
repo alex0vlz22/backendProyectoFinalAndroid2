@@ -8,7 +8,7 @@ public interface RepoEstudiante extends JpaRepository<Estudiante, Integer>{
 
 	Estudiante findByDocumento(long documento);
 	
-	Estudiante findByCorreo(String correo);
+	Estudiante findByCorreoIgnoreCase(String correo);
 	
 	Estudiante findById(int id);
 	

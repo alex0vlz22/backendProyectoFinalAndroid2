@@ -10,6 +10,6 @@ public interface RepoDocente extends JpaRepository<Docente, Integer>{
 	
 	Docente findById(int id);
 	
-	Docente findByCorreo(String correo);
+	Docente findByCorreoIgnoreCase(String correo);
 	
 }
