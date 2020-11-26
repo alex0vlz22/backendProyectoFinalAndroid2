@@ -24,6 +24,7 @@ public interface RepoParticipacion extends JpaRepository<Participacion, Integer>
 	@Query("Select p from Participacion p where p.idParticipante= ?1 and  p.idForo=?2")
 	public List<Participacion> buscarParticipacionesPorParticipanteYForo(int idParticipante, int idForo);
 	
+	
 	/*
 	@Query("select * from (select * from (Select distinct idEstudiante from participacion p where p.idForo= ?1) e join Estudiantes est where e.idEstudiante= est.id) minus select * from estudiantes estud")
 	public List<Estudiante> contarFaltantes(int idForo);

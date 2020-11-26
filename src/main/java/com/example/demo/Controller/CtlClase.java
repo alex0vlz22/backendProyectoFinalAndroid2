@@ -13,13 +13,29 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.Entity.Clase;
 import com.example.demo.Repository.RepoClase;
 import com.example.demo.Repository.RepoDocente;
+import com.example.demo.Repository.RepoEstudiante;
+import com.example.demo.Repository.RepoEstudianteClase;
+import com.example.demo.Repository.RepoForo;
+import com.example.demo.Repository.RepoParticipacion;
 
 @RestController
 public class CtlClase {
 
+	@Autowired 
+	RepoParticipacion repoParticipacion;
+	
+	@Autowired
+	RepoForo repoForo;
+	
 	@Autowired
 	RepoClase repoClase;
 
+	@Autowired
+	RepoEstudiante repoEstu;
+	
+	@Autowired
+	RepoEstudianteClase repoEstuClase;
+	
 	@Autowired
 	RepoDocente repoDocente;
 
@@ -38,6 +54,9 @@ public class CtlClase {
 		}
 	}
 
+	
+	
+	
 	
 
 	/*

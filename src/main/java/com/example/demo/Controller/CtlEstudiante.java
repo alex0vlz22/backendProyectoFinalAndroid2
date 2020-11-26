@@ -23,7 +23,6 @@ public class CtlEstudiante {
 	
 	@PostMapping("/guardarEstudiante")
 	public Estudiante guardar(@RequestBody Estudiante estudiante) {
-		System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
 		return this.repoEstudiante.save(estudiante);
 	}
 	

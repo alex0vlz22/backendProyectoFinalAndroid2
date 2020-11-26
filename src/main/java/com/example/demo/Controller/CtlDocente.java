@@ -75,7 +75,6 @@ public class CtlDocente {
 	@GetMapping("/buscarPorId/{id}")
 	public ResponseEntity<Docente> buscarPorId(@PathVariable("id") int id){
 		Docente docente = this.repoDocente.findById(id);
-		System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
 		if(docente == null) {
 			return ResponseEntity.notFound().build();
 		}else {

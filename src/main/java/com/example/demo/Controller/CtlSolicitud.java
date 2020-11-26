@@ -46,7 +46,6 @@ public class CtlSolicitud {
 		if(s == null)
 			return ResponseEntity.notFound().build();
 		else
-			System.out.println("KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK");
 			this.repoSolicitud.delete(s);
 			return ResponseEntity.ok(s);
 	}

@@ -12,5 +12,6 @@ public interface RepoEstudianteClase extends JpaRepository<EstudianteClase, Inte
 	@Query("select c from EstudianteClase c where idEstudiante = ?1")
 	List<EstudianteClase> findearPorEstudiante(int idEstudiante);
 	
+	List<EstudianteClase> findAllByIdClase(int idClase);
 	
 }
