@@ -88,17 +88,6 @@ public class CtlForo {
 		return listaEstudiantes;
 		
 	}
-	public List<Estudiante> listarEstudiantesPart(int idForo){
-		List<Participacion> listaParticipaciones=repoParticipacion.findAllByIdForo(idForo);
-		List<Estudiante> listaEstudiantes= new ArrayList<>();
-		for (int i = 0; i < listaParticipaciones.size(); i++) {
-			if(noEstáRepetido(listaParticipaciones.get(i).getIdParticipante(), listaEstudiantes)) {
-				listaEstudiantes.add(repoEstu.findById(listaParticipaciones.get(i).getIdParticipante()));
-			}
-		}
-		return listaEstudiantes;
-		
-	}
 	
 	private boolean noEstáRepetido(int idParticipante, List<Estudiante> listaEstudiantes) {
 		for (int i = 0; i < listaEstudiantes.size(); i++) {
@@ -113,7 +102,7 @@ public class CtlForo {
 	public List<Estudiante> listarNoParticiparon(@PathVariable("idForo") int idForo){
 		Foro foro= repoForo.findById(idForo);
 		List<Estudiante> listaEstudiantesClase=listarEstudiantesClase(foro.getIdClase());
-		List<Estudiante> listaParticiparon= listarEstudiantesPart(foro.getId());
+		List<Estudiante> listaParticiparon= listarEstudiantesParticiparon(foro.getId());
 		List<Estudiante> listaNoParticiparon=new ArrayList<>();
 		for (int i = 0; i < listaEstudiantesClase.size(); i++) {
 			if(!participo(listaEstudiantesClase.get(i).getId(),listaParticiparon)) {
@@ -121,7 +110,6 @@ public class CtlForo {
 			}
 		}
 		return listaNoParticiparon;
-		
 	}
 	
 	@GetMapping("/listarEstudiantesClase/{idClase}")
